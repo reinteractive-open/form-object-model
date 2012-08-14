@@ -92,7 +92,7 @@ describe FormObjectModel do
       lambda { form.selectfield1.should have_value("Option 2") }.should raise_error(RSpec::Expectations::ExpectationNotMetError)
     end
 
-    it "should pass with the value is the same" do
+    it "should pass when the value is the same" do
       page.select("Option 2", :from => "Select Field")
       form.selectfield1.should have_value("Option 2")
     end
