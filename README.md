@@ -35,7 +35,7 @@ So given the following form in a page:
 Forms are defined like so:
 
 ```ruby
-form = FormObjectModel.new do |fom|
+form = FormObjectModel::Form.new do |fom|
   form.text_field :name, "Name"
   form.select     :title, "Title"
   form.radio      :gender, "input[name = gender]"
