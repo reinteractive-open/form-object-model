@@ -42,7 +42,7 @@ form = FormObjectModel.new do |fom|
 end
 ```
 
-You can then set the value of the fields, in a consistent way, regardless of the field type. This is like so:
+You can then set the value of the fields, in a consistent way, regardless of the field type. This is done like so:
 
 ```ruby
 form.name  = "Joe Bloggs"
