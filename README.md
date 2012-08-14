@@ -11,17 +11,17 @@ definition of the form fields.
 
 Forms are defined like so:
 
-  form = FormObjectModel.new do |fom|
-    fom.text_field :field_name, "css locator for field"
-  end
+    form = FormObjectModel.new do |fom|
+      fom.text_field :field_name, "css locator for field"
+    end
 
 You can the field the field using:
 
-  form.field_name = "Value"
+    form.field_name = "Value"
 
 And assert the field value using:
 
-  form.field_name.should have_value("Value")
+    form.field_name.should have_value("Value")
 
 ## Installation
 
@@ -36,10 +36,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install form_object_model
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
