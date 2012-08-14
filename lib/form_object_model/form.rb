@@ -1,26 +1,3 @@
-
-
-# This class lets you construct an object model
-# of a form you're using in your request specs.
-# With a form object model, locators and field types
-# are defined in a single place so if the form structure
-# changes your test don't need to change, only the
-# definition of the form fields.
-#
-# Forms are defined like so:
-#
-# form = FormObjectModel.new do |fom|
-#   fom.text_field :field_name, "css locator for field"
-# end
-#
-# You can the field the field using:
-#
-#   form.field_name = "Value"
-#
-# And assert the field value using:
-#
-#   form.field_name.should have_value("Value")
-#
 module FormObjectModel
   class Form
     Field = Struct.new(:page, :name, :locator)
