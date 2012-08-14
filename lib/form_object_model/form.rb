@@ -1,6 +1,15 @@
 module FormObjectModel
   class Form
-    Field = Struct.new(:page, :name, :locator)
+    class Field < Struct.new(:page, :name, :locator)
+      def ==(other)
+        if respond_to?(:has_value?)
+          has_value? other
+        else
+          super
+        end
+      end
+    end
+
     class TextField < Field
       def fill(value)
         page.fill_in(locator, :with => value.to_s)
