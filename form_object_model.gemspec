@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["sean@seangeo.me"]
   gem.description   = %q{An OO form testing helper that makes Capayaba-based form testing easy.}
   gem.summary       = %q{An OO form testing helper that makes Capayaba-based form testing easy.}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/reinteractive-open/form-object-model"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
