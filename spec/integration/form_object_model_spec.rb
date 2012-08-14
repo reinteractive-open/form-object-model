@@ -75,9 +75,19 @@ describe FormObjectModel do
       lambda { form.textfield1.should have_value("Other value") }.should raise_error(RSpec::Expectations::ExpectationNotMetError)
     end
 
+    it "should fail (with ==) when the value of the field is different" do
+      page.fill_in("Text Field 1", :with => "A value")
+      lambda { form.textfield1.should == "Other value" }.should raise_error(RSpec::Expectations::ExpectationNotMetError)
+    end
+
     it "should pass when the value of the field is the same" do
       page.fill_in("Text Field 1", :with => "A value")
       form.textfield1.should have_value("A value")
+    end
+
+    it "should pass (with ==) when the value of the field is the same" do
+      page.fill_in("Text Field 1", :with => "A value")
+      form.textfield1.should == "A value"
     end
   end
 
