@@ -1,5 +1,5 @@
 module FormObjectModel
-  module FormObjectHelpers
+  module Helper
     def have_value(value)
       FormObjectHaveValueMatcher.new(value)
     end

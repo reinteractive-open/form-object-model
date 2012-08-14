@@ -22,7 +22,7 @@
 #   form.field_name.should have_value("Value")
 #
 module FormObjectModel
-  class FormObjectModel
+  class Form
     Field = Struct.new(:page, :name, :locator)
     class TextField < Field
       def fill(value)
@@ -68,14 +68,19 @@ module FormObjectModel
 
       def has_value?(value)
         button = button_for(value)
-        button && button['checked'] == 'true'
+        button && %w(checked true).include?(button['checked'])
       end
 
       def value
-        page.all(locator).find {|b| b['checked'] == 'checked' }.try(:text)
+        element = checked_element
+        element && element.value
       end
 
       private
+      def checked_element
+        page.all(locator).find {|b| b['checked'] == 'checked' }
+      end
+
       def button_for(value)
         label_ids = label_ids_for(value)
         page.all(locator).find {|b| label_ids.include?(b['id']) }
