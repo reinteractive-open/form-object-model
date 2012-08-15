@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe FormObjectModel::Form::Field do
+describe FormObjectModel::Field do
   context "when self responds to has_value?" do
     before do
       subject.stub(:respond_to?).with(:has_value?).and_return(true)

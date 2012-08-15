@@ -1,82 +1,5 @@
 module FormObjectModel
   class Form
-    class Field < Struct.new(:page, :name, :locator)
-      def ==(other)
-        if respond_to?(:has_value?)
-          has_value? other
-        else
-          super
-        end
-      end
-    end
-
-    class TextField < Field
-      def fill(value)
-        page.fill_in(locator, :with => value.to_s)
-      end
-
-      def has_value?(value)
-        page.has_field?(locator, :with => value.to_s)
-      end
-
-      def value
-        page.find_field(locator).value
-      end
-    end
-
-    class SelectField < Field
-      def fill(value)
-        page.select(value.to_s, :from => locator)
-      end
-
-      def has_value?(value)
-        page.has_select?(locator, :selected => value.to_s)
-      end
-
-      def value
-        value = nil
-        page.within(page.find_field(locator)) do
-          value = page.find("option[selected]").text
-        end
-        value
-      end
-    end
-
-    class RadioField < Field
-      # This lets you select the radio button by it's label instead of id
-      def fill(value)
-        if button = button_for(value)
-          button.set(true)
-        else
-          raise "Could not find button with locator '#{locator}' and label '#{value}'"
-        end
-      end
-
-      def has_value?(value)
-        button = button_for(value)
-        button && %w(checked true).include?(button['checked'])
-      end
-
-      def value
-        element = checked_element
-        element && element.value
-      end
-
-      private
-      def checked_element
-        page.all(locator).find {|b| b['checked'] == 'checked' }
-      end
-
-      def button_for(value)
-        label_ids = label_ids_for(value)
-        page.all(locator).find {|b| label_ids.include?(b['id']) }
-      end
-
-      def label_ids_for(value)
-        page.all("label:contains('#{value}')").map {|label| label['for'] }
-      end
-    end
-
     attr_reader :page
 
     def initialize(page)
@@ -124,4 +47,3 @@ module FormObjectModel
     end
   end
 end
-
