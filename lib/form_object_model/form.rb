@@ -40,10 +40,8 @@ module FormObjectModel
     private
 
     def define_field(name, field)
-      (class << self; self; end).class_eval do
-        define_method(name) {|*args| field }
-        define_method("#{name.to_s}=".to_sym) {|val| field.fill(val) }
-      end
+      self.extend(FieldModule.new(name, field))
     end
   end
 end
+
