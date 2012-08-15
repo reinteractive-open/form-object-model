@@ -1,6 +1,7 @@
 # FormObjectModel
 
 [![Build Status](https://secure.travis-ci.org/reinteractive-open/form-object-model.png?branch=master)](http://travis-ci.org/reinteractive-open/form-object-model)
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/reinteractive-open/form-object-model)
 
 This gem lets you construct an object model
 of a form you're using in your request specs.
