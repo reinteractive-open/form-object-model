@@ -25,13 +25,13 @@ describe FormObjectModel::Field do
       subject.stub(:respond_to?).with(:has_value?).and_return(false)
     end
 
-    describe "== method" do
+    describe "==" do
       it "behaves in the conventional way" do
         (subject == "A value").should be_false
       end
     end
 
-    describe "!= method" do
+    describe "!=" do
       it "behaves in the conventional way" do
         (subject != "A value").should be_true
       end

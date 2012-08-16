@@ -4,8 +4,8 @@ require File.expand_path('../lib/form_object_model/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Sean Geoghegan", "Aaron Beckerman"]
   gem.email         = ["sean@seangeo.me", "aaron@aaronbeckerman.com"]
-  gem.description   = %q{An OO form testing helper that makes Capayaba-based form testing easy.}
-  gem.summary       = %q{An OO form testing helper that makes Capayaba-based form testing easy.}
+  gem.description   = %q{An OO form testing helper that makes Capybara-based form testing easy.}
+  gem.summary       = %q{An OO form testing helper that makes Capybara-based form testing easy.}
   gem.homepage      = "https://github.com/reinteractive-open/form-object-model"
 
   gem.files         = `git ls-files`.split($\)
