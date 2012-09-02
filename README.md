@@ -37,9 +37,9 @@ Forms are defined like so:
 
 ```ruby
 form = FormObjectModel::Form.new do |fom|
-  form.text_field :name, "Name"
-  form.select     :title, "Title"
-  form.radio      :gender, "input[name = gender]"
+  fom.text_field :name, "Name"
+  fom.select     :title, "Title"
+  fom.radio      :gender, "input[name = gender]"
 end
 ```
 
